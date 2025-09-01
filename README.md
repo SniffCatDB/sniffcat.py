@@ -1,6 +1,6 @@
-# sniffcat
+# SniffCat.py
 
-Python client for the [Sniffcat](https://sniffcat.com/documentation/api) IP reputation and abuse reporting API.
+Python client for the [SniffCat](https://sniffcat.com/documentation/api) IP reputation and abuse reporting API.
 
 ## Features
 
@@ -18,10 +18,10 @@ pip install sniffcat
 ## Usage
 
 ```python
-from sniffcat import SniffcatClient
+from sniffcat import SniffCatClient
 
 # Initialize the client with your API token
-client = SniffcatClient("your_api_token")
+client = SniffCatClient("your_api_token")
 
 # Example 1: Get blacklist with default confidence
 blacklist = client.get_blacklist()

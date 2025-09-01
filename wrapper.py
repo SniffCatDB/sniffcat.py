@@ -1,6 +1,6 @@
 import requests
 
-# Base URL for the Sniffcat API
+# Base URL for the SniffCat API
 API_BASE = "https://api.sniffcat.com/api/v1"
 # Your API token from https://sniffcat.com/api
 TOKEN = "token from https://sniffcat.com/api"

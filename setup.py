@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name="sniffcat",
     version="0.1.5",
-    description="Python client for Sniffcat API.",
+    description="Python client for SniffCat API.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     author="Dominik 'skiop' S. <",

@@ -1,7 +1,7 @@
 """
-sniffcat - Python client for the Sniffcat API
+sniffcat - Python client for the SniffCat API
 
-Easily interact with the Sniffcat IP reputation and abuse reporting API.
+Easily interact with the SniffCat IP reputation and abuse reporting API.
 
 Features:
 - Fetch blacklist of suspicious IPs
@@ -13,9 +13,9 @@ API documentation: https://sniffcat.com/documentation/api
 
 Example usage:
 --------------
-from sniffcat import SniffcatClient
+from sniffcat import SniffCatClient
 
-client = SniffcatClient("your_api_token")
+client = SniffCatClient("your_api_token")
 print(client.get_blacklist())
 print(client.check_ip("1.1.1.1"))
 print(client.get_ip_reports("1.1.1.1"))
@@ -31,9 +31,9 @@ __license__ = "MIT"
 
 API_BASE = "https://api.sniffcat.com/api/v1"
 
-class SniffcatClient:
+class SniffCatClient:
     """
-    Python client for the Sniffcat API.
+    Python client for the SniffCat API.
 
     Args:
         token (str): Your API token from https://sniffcat.com/api
