@@ -1,6 +1,7 @@
 # sniffcat
 
 Python client for the [SniffCat](https://sniffcat.com/documentation/api) IP reputation and abuse reporting API.
+https://pypi.org/project/sniffcat/
 
 ## Features
 
