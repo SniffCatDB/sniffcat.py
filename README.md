@@ -9,7 +9,7 @@
 - View reports about IP activity
 - Report suspicious IPs (e.g., for port scanning) to Sniffcat
 
-See usage examples in `example.py`.
+See usage examples in `sniffcat.py`.
 
 Full API documentation is available at [https://sniffcat.com/documentation/api](https://sniffcat.com/documentation/api).
 
@@ -21,11 +21,11 @@ Full API documentation is available at [https://sniffcat.com/documentation/api](
 
 ### Getting Started
 
-1. Set your API key in `example.py`.
+1. Set your API key in `sniffcat.py`.
 2. Install dependencies:  
    `pip install requests`
 3. Run examples:  
-   `python3 example.py`
+   `python3 sniffcat.py`
 
 ### License
 MIT
