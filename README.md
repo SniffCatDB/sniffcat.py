@@ -8,7 +8,6 @@
 - Check reputation and abuse score for any IP
 - View reports about IP activity
 - Report suspicious IPs (e.g., for port scanning) to Sniffcat
-- Integrate with a Flask-based honeypot
 
 See usage examples in `example.py`.
 
@@ -42,7 +41,6 @@ MIT
 - Sprawdzanie reputacji i poziomu nadużyć dla wybranego IP
 - Przeglądanie raportów dotyczących aktywności IP
 - Zgłaszanie podejrzanych adresów IP (np. za port scanning) do Sniffcat
-- Integrację z honeypotem opartym o Flask
 
 Przykłady użycia znajdziesz w pliku `example.py`.
 
