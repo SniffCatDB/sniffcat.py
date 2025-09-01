@@ -51,3 +51,11 @@ print("Custom report result:", result_custom)
 ## API Documentation
 
 See full API docs at [https://sniffcat.com/documentation/api](https://sniffcat.com/documentation/api)
+
+## Maintainers
+
+- [ntxg](https://github.com/ntxg)
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details
