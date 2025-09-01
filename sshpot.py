@@ -12,7 +12,7 @@ HOST_KEY = paramiko.RSAKey.generate(2048)
 PORTS = [22]  # 🚨 tylko port 22
 
 # Init SniffCat client
-SNIFFCAT_API_TOKEN = "ed6b0b16f2fa7680a2d5f519934cf6435169c7794e59bf79a65c05df385a74f4d64c11b5c3b6c5f71dc88dce604e7540a8b744c7"
+SNIFFCAT_API_TOKEN = "your_api_token_here"
 client = SniffCatClient(SNIFFCAT_API_TOKEN)
 
 def log_attempt(attempt):

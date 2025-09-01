@@ -25,7 +25,7 @@ print(client.report_ip("1.2.3.4", [2, 3], comment="Spam and malware activity det
 
 import requests
 
-__version__ = "0.1.6"
+__version__ = "0.1.7"
 __author__ = "Dominik 'skiop' S."
 __license__ = "MIT"
 
@@ -34,23 +34,14 @@ API_BASE = "https://api.sniffcat.com/api/v1"
 class SniffCatClient:
     """
     Python client for the SniffCat API.
-
-    Args:
-        token (str): Your API token from https://sniffcat.com/api
-
-    Methods:
-        get_blacklist(confidence_min=50): Fetch blacklist with minimum confidence.
-        check_ip(ip): Check abuse score for a single IP.
-        get_ip_reports(ip): Get reports for a single IP.
-        report_ip(ip, categories, comment): Report an IP with chosen categories.
-        report_ip_port_scan(ip, comment): Shortcut for port scanning (category 4).
     """
 
     def __init__(self, token: str):
         self.token = token
         self.headers = {
             "X-Secret-Token": self.token,
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "User-Agent": f"Mozilla/5.0 (compatible; SniffCat.py/{__version__}; +https://github.com/SniffCatDB/sniffcat.py)"
         }
 
     def get_blacklist(self, confidence_min: int = 50):

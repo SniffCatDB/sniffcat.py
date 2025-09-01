@@ -1,3 +1,4 @@
+LICENSE
 README.md
 setup.py
 sniffcat/__init__.py
