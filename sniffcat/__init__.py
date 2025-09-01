@@ -1,39 +1,39 @@
 """
-sniffcat - Python client for the Sniffcat API
-
-Easily interact with the Sniffcat IP reputation and abuse reporting API.
+sniffcat - Python client for the SniffCat API
 
 Features:
 - Fetch blacklist of suspicious IPs
 - Check reputation and abuse score for any IP
 - View reports about IP activity
-- Report suspicious IPs (e.g., for port scanning)
+- Report suspicious IPs (e.g., for port scanning, spam, malware, etc.)
 
 API documentation: https://sniffcat.com/documentation/api
+Categories: https://sniffcat.com/documentation/categories
 
 Example usage:
 --------------
-from sniffcat import SniffcatClient
+from sniffcat import SniffCatClient
 
-client = SniffcatClient("your_api_token")
+client = SniffCatClient("your_api_token")
 print(client.get_blacklist())
 print(client.check_ip("1.1.1.1"))
 print(client.get_ip_reports("1.1.1.1"))
 print(client.report_ip_port_scan("1.1.1.1"))
+print(client.report_ip("1.2.3.4", [2, 3], comment="Spam and malware activity detected"))
 --------------
 """
 
 import requests
 
-__version__ = "0.1.5"
-__author__ = "Dominik 'skiop' S. <"
+__version__ = "0.1.6"
+__author__ = "Dominik 'skiop' S."
 __license__ = "MIT"
 
 API_BASE = "https://api.sniffcat.com/api/v1"
 
-class SniffcatClient:
+class SniffCatClient:
     """
-    Python client for the Sniffcat API.
+    Python client for the SniffCat API.
 
     Args:
         token (str): Your API token from https://sniffcat.com/api
@@ -42,7 +42,8 @@ class SniffcatClient:
         get_blacklist(confidence_min=50): Fetch blacklist with minimum confidence.
         check_ip(ip): Check abuse score for a single IP.
         get_ip_reports(ip): Get reports for a single IP.
-        report_ip_port_scan(ip, comment): Report an IP for port scanning (category 4).
+        report_ip(ip, categories, comment): Report an IP with chosen categories.
+        report_ip_port_scan(ip, comment): Shortcut for port scanning (category 4).
     """
 
     def __init__(self, token: str):
@@ -53,15 +54,6 @@ class SniffcatClient:
         }
 
     def get_blacklist(self, confidence_min: int = 50):
-        """
-        Fetch blacklist with minimum confidence.
-
-        Args:
-            confidence_min (int): Minimum confidence score (default: 50)
-
-        Returns:
-            dict: Blacklisted IPs or error info
-        """
         response = requests.get(
             f"{API_BASE}/blacklist",
             headers=self.headers,
@@ -73,15 +65,6 @@ class SniffcatClient:
             return {"error": "Invalid JSON", "content": response.text}
 
     def check_ip(self, ip: str):
-        """
-        Check abuse score for a single IP.
-
-        Args:
-            ip (str): IP address to check
-
-        Returns:
-            dict: Abuse info or error info
-        """
         response = requests.get(
             f"{API_BASE}/check",
             headers=self.headers,
@@ -93,15 +76,6 @@ class SniffcatClient:
             return {"error": "Invalid JSON", "content": response.text}
 
     def get_ip_reports(self, ip: str):
-        """
-        Get reports for a single IP, handle 404 if not found.
-
-        Args:
-            ip (str): IP address to get reports for
-
-        Returns:
-            dict: Report data or error info
-        """
         response = requests.get(
             f"{API_BASE}/reports",
             headers=self.headers,
@@ -114,18 +88,20 @@ class SniffcatClient:
         except Exception:
             return {"error": "Invalid JSON", "content": response.text}
 
-    def report_ip_port_scan(self, ip: str, comment: str = "TCP/UDP port scanning detected"):
+    def report_ip(self, ip: str, categories: list, comment: str = ""):
         """
-        Report an IP as port_scan using category ID [4].
+        Report an IP with chosen categories.
+        See: https://sniffcat.com/documentation/categories
 
         Args:
             ip (str): IP address to report
-            comment (str): Optional comment (default: "TCP/UDP port scanning detected")
+            categories (list): List of category IDs (e.g. [4])
+            comment (str): Optional comment
 
         Returns:
             dict: Report result or error info
         """
-        data = {"ip": ip, "category": [4], "comment": comment}
+        data = {"ip": ip, "category": categories, "comment": comment}
         response = requests.post(
             f"{API_BASE}/report",
             headers=self.headers,
@@ -142,3 +118,9 @@ class SniffcatClient:
             return response.json()
         except Exception:
             return {"error": "Invalid JSON", "content": response.text}
+
+    def report_ip_port_scan(self, ip: str, comment: str = "TCP/UDP port scanning detected"):
+        """
+        Shortcut for reporting port scanning (category 4).
+        """
+        return self.report_ip(ip, [4], comment)
