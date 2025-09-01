@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: sniffcat
-Version: 0.1.5
+Version: 0.1.6
 Summary: Python client for SniffCat API.
 Home-page: https://github.com/yourusername/sniffcat.py
 Author: Dominik 'skiop' S. <
