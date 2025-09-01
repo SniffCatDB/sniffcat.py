@@ -1,3 +1,24 @@
+Metadata-Version: 2.4
+Name: sniffcat
+Version: 0.1.5
+Summary: Python client for Sniffcat API.
+Home-page: https://github.com/yourusername/sniffcat.py
+Author: Dominik 'skiop' S. <
+Author-email: ntxg@proton.me
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
 # sniffcat
 
 Python client for the [Sniffcat](https://sniffcat.com/documentation/api) IP reputation and abuse reporting API.
