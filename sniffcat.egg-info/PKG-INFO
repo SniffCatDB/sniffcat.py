@@ -1,3 +1,26 @@
+Metadata-Version: 2.4
+Name: sniffcat
+Version: 0.1.8
+Summary: Python client for SniffCat API.
+Home-page: https://github.com/yourusername/sniffcat.py
+Author: Dominik 'skiop' S. <
+Author-email: ntxg@proton.me
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
 # sniffcat
 
 Python client for the [SniffCat](https://sniffcat.com/documentation/api) IP reputation and abuse reporting API.
@@ -82,3 +105,5 @@ MIT
 - Improved error handling for non-JSON responses from the API.
 - Documentation and usage examples updated to use `SniffCatClient` and the new `categories` parameter.
 
+---
+Older changes available

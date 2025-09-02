@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+sniffcat/__init__.py
+sniffcat.egg-info/PKG-INFO
+sniffcat.egg-info/SOURCES.txt
+sniffcat.egg-info/dependency_links.txt
+sniffcat.egg-info/requires.txt
+sniffcat.egg-info/top_level.txt
