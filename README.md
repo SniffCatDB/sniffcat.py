@@ -64,3 +64,23 @@ See full API docs at [https://sniffcat.com/documentation/api](https://sniffcat.c
 ## License
 
 MIT
+
+# Changelog
+
+## [0.1.8] - 2025-09-02
+
+### Changed
+- The payload key for reporting IPs was changed from `category` to `categories` in `report_ip()` to match SniffCat API requirements.
+
+### Added
+- Custom `User-Agent` header:  
+  Now all requests use  
+  `Mozilla/5.0 (compatible; SniffCat.py/{version}; +https://github.com/SniffCatDB/sniffcat.py)`  
+  to help bypass Cloudflare Bot Fight Mode.
+
+### Fixed
+- Improved error handling for non-JSON responses from the API.
+- Documentation and usage examples updated to use `SniffCatClient` and the new `categories` parameter.
+
+---
+Older changes available

@@ -25,7 +25,7 @@ print(client.report_ip("1.2.3.4", [2, 3], comment="Spam and malware activity det
 
 import requests
 
-__version__ = "0.1.7"
+__version__ = "0.1.8"
 __author__ = "Dominik 'skiop' S."
 __license__ = "MIT"
 
@@ -92,7 +92,7 @@ class SniffCatClient:
         Returns:
             dict: Report result or error info
         """
-        data = {"ip": ip, "category": categories, "comment": comment}
+        data = {"ip": ip, "categories": categories, "comment": comment}  # <-- poprawka tutaj!
         response = requests.post(
             f"{API_BASE}/report",
             headers=self.headers,
